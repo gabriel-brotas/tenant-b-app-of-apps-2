@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-c
+  name: guestbook-c-tenant-a-ns
   namespace: tenant-a-dev
 spec:
   project: tenant-a-dev
@@ -12,7 +12,7 @@ spec:
     path: guestbook
   destination:
     name: in-cluster
-    namespace: guestbook-c
+    namespace: guestbook-c-tenant-a-ns
   syncPolicy:
     automated:
       prune: true
