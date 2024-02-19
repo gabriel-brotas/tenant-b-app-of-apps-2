@@ -4,17 +4,17 @@ kind: Application
 metadata:
   name: guestbook-c
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: tenant-b-dev
+  project: tenant-a-dev
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: guestbook
   destination:
     name: in-cluster
-    namespace: tenant-c-dev
+    namespace: guestbook-c
   syncPolicy:
     automated:
       prune: true
