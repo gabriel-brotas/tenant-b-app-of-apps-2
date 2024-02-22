@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook-a-tenant-a-ns
-  namespace: tenant-a-dev
+  namespace: tenant-a-dev # namespace tenant-a-dev is not permitted in project 'tenant-b-dev'
 spec:
   project: tenant-a-dev
   source:
