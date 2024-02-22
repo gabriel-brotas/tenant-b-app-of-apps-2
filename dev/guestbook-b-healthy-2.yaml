@@ -2,17 +2,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-b-argo-ns
-  namespace: argocd # namespace argocd is not permitted in project 'tenant-b-dev'
+  name: guestbook-b-healthy-2
+  namespace: tenant-b-dev
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
-  project: tenant-a-dev
+  project: tenant-b-dev
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
     path: guestbook
   destination:
     name: in-cluster
-    namespace: guestbook-b-argo-ns
+    namespace: guestbook-b-healthy-2
   syncPolicy:
     automated:
       prune: true
