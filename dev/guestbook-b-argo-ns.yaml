@@ -5,7 +5,7 @@ metadata:
   name: guestbook-b-argo-ns
   namespace: argocd # namespace argocd is not permitted in project 'tenant-b-dev'
 spec:
-  project: tenant-a-dev
+  project: tenant-b-dev
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD

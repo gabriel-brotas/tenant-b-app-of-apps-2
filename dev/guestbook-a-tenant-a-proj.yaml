@@ -3,9 +3,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook-a-tenant-a-project
-  namespace: tenant-b-dev # namespace tenant-a-dev is not permitted in project 'tenant-b-dev'
+  namespace: tenant-b-dev
 spec:
-  project: tenant-a-dev
+  project: tenant-a-dev # application 'guestbook-a-tenant-a-project' in namespace 'tenant-b-dev' is not permitted to use project 'tenant-a-dev'
   source:
     repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
