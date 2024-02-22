@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook-a-tenant-a-project
+  namespace: tenant-b-dev # namespace tenant-a-dev is not permitted in project 'tenant-b-dev'
+spec:
+  project: tenant-a-dev
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    name: in-cluster
+    namespace: tenant-a-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
